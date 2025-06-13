@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Video-to-Text Converter - Upload</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Video-to-Text Converter</h1>
+
+  <div class="upload-card">
+    <!-- Your video icon -->
+    <img src="{{ url_for('static', filename='video-upload-icon.svg') }}" alt="Upload Video Icon">
+
+    <!-- Instruction -->
+    <p>Upload a video file to extract the text content from it</p>
+
+    <!-- Upload Form -->
+    <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+      
+      <!-- Custom File Upload Button -->
+      <label for="videoInput" class="custom-file-upload">
+        🎥 Select Video File
+      </label>
+      <input id="videoInput" type="file" name="video" accept="video/*" required />
+
+      <!-- Upload Video button -->
+      <button type="submit">Upload Video</button>
+    </form>
+  </div>
+</body>
+</html>

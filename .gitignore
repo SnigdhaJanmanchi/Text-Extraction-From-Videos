@@ -1,0 +1,7 @@
+__pycache__/
+.venv/
+*.wav
+*.txt
+chunks/
+input_videos/
+text_output/

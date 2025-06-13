@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Video-to-Text Converter - Result</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Video-to-Text Converter</h1>
+
+  <div class="transcribed-text">
+    <h2>Transcribed Text</h2>
+
+    <!-- Action Buttons -->
+    <div style="margin-bottom: 15px;">
+      <button class="action-button" onclick="copyToClipboard()">📋 Copy Text</button>
+      <button class="action-button" onclick="downloadText()">⬇️ Download as .txt</button>
+    </div>
+
+    <!-- Transcribed Content -->
+    <div id="transcribedContent" style="white-space: pre-wrap; font-size: 1.05rem;">
+      {{ transcription }}
+    </div>
+  </div>
+
+  <!-- JS for copy + download -->
+  <script>
+    function copyToClipboard() {
+      const text = document.getElementById('transcribedContent').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Transcription copied to clipboard!');
+      });
+    }
+
+    function downloadText() {
+      const text = document.getElementById('transcribedContent').innerText;
+      const blob = new Blob([text], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'transcription.txt';
+      link.click();
+    }
+  </script>
+</body>
+</html>
