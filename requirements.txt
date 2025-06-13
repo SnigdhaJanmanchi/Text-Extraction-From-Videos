@@ -1,6 +1,5 @@
 Flask==2.3.2
-gunicorn==20.1.0
 moviepy==1.0.3
 SpeechRecognition==3.8.1
 transformers==4.40.1
-torch>=2.1.0
+torch==2.0.1  # or a version you verify has pre-built wheels for py3.10
