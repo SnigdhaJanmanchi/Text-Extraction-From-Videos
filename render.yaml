@@ -6,3 +6,4 @@ services:
     pythonVersion: "3.11"
     buildCommand: ""
     startCommand: gunicorn app:app
+
