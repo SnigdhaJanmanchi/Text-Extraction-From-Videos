@@ -9,4 +9,4 @@ huggingface-hub==0.33.0
 packaging==25.0
 pyyaml==6.0.2
 regex==2024.11.6
-tokenizers==0.19.1
+tokenizers==0.13.3
